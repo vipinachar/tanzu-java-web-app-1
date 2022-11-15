@@ -1,0 +1,25 @@
+name: Merge upstream branches
+on:
+  schedule:
+     # actually, ~5 minutes is the highest
+     # effective frequency you will get
+    - cron:  '* * * * *'
+jobs:
+  merge:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Merge upstream
+        run: |
+          git config --global user.name 'vipinachar'
+          git config --global user.email 'vipinachar2016@gmail.com'
+
+         
+          git pull --unshallow  
+
+          git remote add upstream https://github.com/vipinms2/tanzu-java-web-app-1
+          git fetch upstream
+
+          git rebase upstream/main
+          git pull --no-edit
+          git push origin main
