@@ -11,6 +11,11 @@ jobs:
     name: Sync latest commits from upstream repo
 
     steps:
+    - name: Checkout target repo
+      uses: actions/checkout@v2
+      with:
+        ref:  main
+
     - name: Sync upstream changes
       id: sync
       uses: aormsby/Fork-Sync-With-Upstream-action@v3.4
