@@ -37,6 +37,5 @@ jobs:
         upstream_sync_repo: vipinms2/tanzu-java-web-app-1
         upstream_repo_access_token: ${{ secrets.UPSTREAM_REPO_SECRET }}
 
-        # Set test_mode true to run tests instead of the true action!!
-        test_mode: true
+      
       
